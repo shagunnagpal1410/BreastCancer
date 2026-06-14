@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Breast Cancer Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Breast Cancer Prediction</h2>
+
+        <form action="/predict" method="post">
+
+            <label>Radius Mean:</label>
+            <input type="number" step="any" name="radius_mean" required>
+
+            <label>Texture Mean:</label>
+            <input type="number" step="any" name="texture_mean" required>
+
+            <label>Perimeter Mean:</label>
+            <input type="number" step="any" name="perimeter_mean" required>
+
+            <label>Area Mean:</label>
+            <input type="number" step="any" name="area_mean" required>
+
+            <label>Smoothness Mean:</label>
+            <input type="number" step="any" name="smoothness_mean" required>
+
+            <label>Compactness Mean:</label>
+            <input type="number" step="any" name="compactness_mean" required>
+
+            <label>Concavity Mean:</label>
+            <input type="number" step="any" name="concavity_mean" required>
+
+            <label>Concave Points Mean:</label>
+            <input type="number" step="any" name="concave_points_mean" required>
+
+            <label>Shape Irregularity:</label>
+            <input type="number" step="any" name="shape_irregularity" required>
+
+            <label>Border Complexity:</label>
+            <input type="number" step="any" name="border_complexity" required>
+
+            <label>Radius Texture Interaction:</label>
+            <input type="number" step="any" name="radius_texture_interaction" required>
+
+            <label>Radius Concavity Interaction:</label>
+            <input type="number" step="any" name="radius_concavity_interaction" required>
+
+            <label>Concavity Density:</label>
+            <input type="number" step="any" name="concavity_density" required>
+
+            <input type="submit" value="Predict">
+
+        </form>
+    </div>
+    {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+    </div>
+</body>
+
+</html>
